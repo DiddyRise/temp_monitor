@@ -11,7 +11,7 @@ sensor = Adafruit_DHT.AM2302
 pin = 17
 
 f = open("results.csv", "w")
-f.write("'Time','Temperature','Humidity'\n")
+f.write("Time,Temperature,Humidity\n")
 f.close
 while True:
     time.sleep(60)
