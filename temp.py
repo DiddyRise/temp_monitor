@@ -13,7 +13,7 @@ pin = 17
 f = open("results.csv", "w")
 f.write("Time,Temperature,Humidity\n")
 while True:
-    time.sleep(5)
+    time.sleep(60)
     now = datetime.now()
     current_time = now.strftime("%H:%M")
     humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
