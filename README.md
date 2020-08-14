@@ -46,5 +46,19 @@ python3 temp.py
 ```
 - The result.csv file is located in the same folder
 
+### Variables
+- sensor: Lets you change the sensor. There are currently 3 options: 
+`````
+Adafruit_DHT.DHT11
+Adafruit_DHT.DHT22
+Adafruit_DHT.AM2302
+`````
+
+- pin: Lets you specify the GPIO Pin that your sensor signal is connected to (e.g. GPIO17)
+
+- set_time: Time between sensor readings in seconds
+
+- value_format: You can choose between comma and dot for the value format.
+
 
 
