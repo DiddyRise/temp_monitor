@@ -14,9 +14,9 @@ sensor = Adafruit_DHT.AM2302
 pin = 17
 #
 # Set the time in seconds between each probe - Please note that that the minimum is 2 seconds
-set_time = 2
+set_time = 300
 #
-delimiter = 'comma' #set delimiter (comma / dot)
+value_format = 'comma' #set delimiter (comma / dot)
 ########################################
 
 # preparing the csv file
@@ -34,7 +34,7 @@ while True:
     humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
     if humidity is not None and temperature is not None:
         #check for delimiter setting
-        if delimiter == 'comma':
+        if value_format == 'comma':
          result = (str(current_time)  + ";" + str(round(temperature, 2)).replace('.',',') + ";" + str(round(humidity, 2)).replace('.',',')) 
         else:
          result = (str(current_time) + ";" + str(round(temperature, 2)) + ";" + str(round(humidity, 2)))
