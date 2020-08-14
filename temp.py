@@ -16,6 +16,7 @@ pin = 17
 # Set the time in seconds between each probe - Please note that that the minimum is 2 seconds
 set_time = 300
 #
+delimiter = 'comma' #set delimiter (comma / dot)
 ########################################
 
 
@@ -29,10 +30,15 @@ while True:
     current_time = now.strftime("%H:%M")
     humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
     if humidity is not None and temperature is not None:
-         result = (str(current_time)  + "," + str(round(temperature, 2)) + "," + str(round(humidity, 2))) 
-         print(result)
-         f.write(result + "\n")
-         f.close
+        if delimiter == 'comma':
+         result = (str(current_time)  + ";" + str(round(temperature, 2)).replace('.',',') + ";" + str(round(humidity, 2)).replace('.',',')) 
+        else:
+         result = (str(current_time) + ";" + str(round(temperature, 2)) + ";" + str(round(humidity, 2)))
+    
+        print(result)
+        f.write(result + "\n")
+        f.close
+    
     else:
         print("0")
         
