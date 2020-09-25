@@ -20,7 +20,7 @@ sudo apt-get update && sudo apt-get install python3
 sudo apt-get install git
 ```
 
-### Install Adafruit_DHT
+### Install PIP & Adafruit_DHT
 ```
 sudo apt-get update
 sudo apt-get install python3-pip
