@@ -45,6 +45,27 @@ git clone https://github.com/DiddyRise/temp_monitor
 python3 temp.py
 ```
 - The result.csv file is located in the same folder
+- Results are saved to a date-marked file at the end of a day (e.g.: results_24.09.2020.csv)
+
+- If you want to run this script you can use the "screen" tool
+
+## Sreen Installation and usage
+- Install screen with this command:
+```
+sudo apt-get install screen
+```
+- Run tempy with this command:
+```
+screen python3 temp.py
+```
+- Move screen to the background with CTRL + A, then D
+- Return to your screen session with this:
+```
+screen -r
+```
+More information here:
+https://linuxize.com/post/how-to-use-linux-screen/
+
 
 ### Variables
 - sensor: Lets you change the sensor. There are currently 3 options: 
