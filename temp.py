@@ -20,6 +20,9 @@ set_time = 300
 value_format = 'comma' #set delimiter (comma / dot)
 ########################################
 
+# some random stack overflow thingy to make sure cron uses the correct directory, don't ask how or why :) 
+os.chdir(sys.path[0])
+
 # preparing the csv file
 f = open("results.csv", "a")
 f.write("Time;Temperature;Humidity\n")
