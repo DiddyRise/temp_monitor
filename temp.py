@@ -2,6 +2,7 @@ import Adafruit_DHT
 import sys
 import time
 from datetime import datetime
+import os
 
 ########################################
 #
@@ -24,13 +25,28 @@ f = open("results.csv", "w")
 f.write("Time;Temperature;Humidity\n")
 f.close
 
+# initializes date variable, prints start date
+today = datetime.today().date()
+print("Start Date: " + str(today))
 
 # main loop
 while True:
+
+    #checks for date change & renames file if new date is found
     time.sleep(set_time)
+    if datetime.today().date() != today:
+        os.rename("results.csv","results_" + str(today) + ".csv")
+        f = open("results.csv", "w")
+        f.write("Time;Temperature;Humidity\n")
+        f.close
+        today = datetime.today().date() #sets the new date to the current date
+    else:
+        pass
+
+
     f = open("results.csv", "a")
     now = datetime.now()
-    current_time = now.strftime("%Y/%m/%d - %H:%M") # Change the date output here
+    current_time = now.strftime("%Y-%m-%d - %H:%M") # Change the date output here
     humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
     if humidity is not None and temperature is not None:
         #check for delimiter setting
