@@ -21,7 +21,7 @@ value_format = 'comma' #set delimiter (comma / dot)
 ########################################
 
 # preparing the csv file
-f = open("results.csv", "w")
+f = open("results.csv", "a")
 f.write("Time;Temperature;Humidity\n")
 f.close
 
