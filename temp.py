@@ -15,7 +15,7 @@ sensor = Adafruit_DHT.AM2302
 pin = 17
 #
 # Set the time in seconds between each probe - Please note that that the minimum is 2 seconds
-set_time = 300
+set_time = 5
 #
 value_format = 'comma' #set delimiter (comma / dot)
 ########################################
@@ -24,9 +24,14 @@ value_format = 'comma' #set delimiter (comma / dot)
 os.chdir(sys.path[0])
 
 # preparing the csv file
-f = open("results.csv", "a")
-f.write("Time;Temperature;Humidity\n")
-f.close
+# if file exists, do nothing, else create the file
+if os.path.exists('./results.csv'):
+    print("results.csv file exists, skipping creation!")
+else:
+    print("results.csv file not found, creating...!")
+    f = open("results.csv", "w")
+    f.write("Time;Temperature;Humidity\n")
+    f.close
 
 # initializes date variable, prints start date
 today = datetime.today().date()
