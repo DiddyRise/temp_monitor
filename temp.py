@@ -15,7 +15,7 @@ sensor = Adafruit_DHT.AM2302
 pin = 17
 #
 # Set the time in seconds between each probe - Please note that that the minimum is 2 seconds
-set_time = 5
+set_time = 300
 #
 value_format = 'comma' #set delimiter (comma / dot)
 ########################################
