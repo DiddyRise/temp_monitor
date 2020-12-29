@@ -15,7 +15,7 @@ sensor = Adafruit_DHT.AM2302
 pin = 17
 #
 # Set the time in seconds between each probe - Please note that that the minimum is 2 seconds
-set_time = 300
+set_time = 5
 #
 value_format = 'comma' #set delimiter (comma / dot)
 ########################################
@@ -32,6 +32,19 @@ else:
     f = open("results.csv", "w")
     f.write("Time;Temperature;Humidity\n")
     f.close
+
+# creates html file
+if os.path.exists('index.html'):
+    pass
+else:
+    f = open("index.html", "w")
+    f.write("<html>")
+    f.close
+
+
+### There should be something here to remind the user to symlink index.html
+print("If you want to display the current measurement on a webpage, please symlink index.html from /var/www/html/ to the current directory! Use ln -s. ")
+
 
 # initializes date variable, prints start date
 today = datetime.today().date()
@@ -65,6 +78,12 @@ while True:
     
         print(result) # this can be turned off, if no terminal output is required
         f.write(result + "\n")
+        f.close
+
+        # populate the html file
+        f = open("index.html", "w")
+        f.write("Date - Time - Temperature - Humidity <br>")
+        f.write(result)
         f.close
     
     else:
