@@ -15,7 +15,7 @@ sensor = Adafruit_DHT.AM2302
 pin = 17
 #
 # Set the time in seconds between each probe - Please note that that the minimum is 2 seconds
-set_time = 5
+set_time = 300
 #
 value_format = 'comma' #set delimiter (comma / dot)
 ########################################
@@ -43,7 +43,7 @@ else:
 
 
 ### There should be something here to remind the user to symlink index.html
-print("If you want to display the current measurement on a webpage, please symlink index.html from /var/www/html/ to the current directory! Use ln -s. ")
+print("If you want to display the current measurement on a webpage, place the \"index_template.html\" file in /var/www/html, rename it to \"index.html\"  and symlink the current directory to /var/www/html. Use ln -s.")
 
 
 # initializes date variable, prints start date
