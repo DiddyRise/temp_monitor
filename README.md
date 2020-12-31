@@ -49,7 +49,7 @@ python3 temp.py
 
 - If you want to run this script you can use the "screen" tool
 
-## Sreen Installation and usage
+## Screen Installation and usage
 - Install screen with this command:
 ```
 sudo apt-get install screen
@@ -82,4 +82,22 @@ Adafruit_DHT.AM2302
 - value_format: You can choose between comma and dot for the value format.
 
 
+### Display on webpage
+If you want to display your current data on a webpage you can follow these steps:
 
+- Install Apache
+````````
+sudo apt-get install apache2
+````````
+
+- Copy the website template to the working directory of Apache2
+```````
+sudo mv index_template.html /var/www/html/index.html
+```````
+
+- Symlink your install directory to /var/www/html
+````````
+sudo ln -s /you/path/here/temp_monitor temp_monitor
+````````
+
+You should now be able to browse to the IP of your device and see measurements. Please ensure that the script is running and that your measurements are beeing recorded.
