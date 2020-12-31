@@ -34,10 +34,10 @@ else:
     f.close()
 
 # creates html file
-if os.path.exists('index.html'):
+if os.path.exists('results.html'):
     pass
 else:
-    f = open("index.html", "w")
+    f = open("results.html", "w")
     f.write("<html>")
     f.close()
 
@@ -81,7 +81,7 @@ while True:
         f.close()
 
         # populate the html file
-        f = open("index.html", "w")
+        f = open("results.html", "w")
         f.write("Date - Time - Temperature - Humidity <br>")
         f.write(result)
         f.close()
