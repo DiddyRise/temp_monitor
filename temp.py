@@ -31,7 +31,7 @@ else:
     print("results.csv file not found, creating...!")
     f = open("results.csv", "w")
     f.write("Time;Temperature;Humidity\n")
-    f.close
+    f.close()
 
 # creates html file
 if os.path.exists('index.html'):
@@ -39,7 +39,7 @@ if os.path.exists('index.html'):
 else:
     f = open("index.html", "w")
     f.write("<html>")
-    f.close
+    f.close()
 
 
 ### There should be something here to remind the user to symlink index.html
@@ -59,7 +59,7 @@ while True:
         os.rename("results.csv","results_" + str(today) + ".csv")
         f = open("results.csv", "w")
         f.write("Time;Temperature;Humidity\n")
-        f.close
+        f.close()
         today = datetime.today().date() #sets the new date to the current date
     else:
         pass
@@ -78,13 +78,13 @@ while True:
     
         print(result) # this can be turned off, if no terminal output is required
         f.write(result + "\n")
-        f.close
+        f.close()
 
         # populate the html file
         f = open("index.html", "w")
         f.write("Date - Time - Temperature - Humidity <br>")
         f.write(result)
-        f.close
+        f.close()
     
     else:
         print("0")
